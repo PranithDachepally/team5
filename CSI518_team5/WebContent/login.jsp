@@ -7,7 +7,7 @@
 <title>School Management System | Login Page</title>
 </head>
 <body>
-<h2>Interview Management System | Sign In</h2>
+<h2>School Management System | Sign In</h2>
 
 <table>
 <tr>
