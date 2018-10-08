@@ -9,7 +9,19 @@
 <body>
 <h2>Interview Management System | Sign In</h2>
 
-
+<table>
+<tr>
+<th style="color: #ffffff; background-color: #707070;">Username</th>
+<td><input type="text" name="username" placeholder="User Name" required autofocus /></td>
+</tr>
+<tr>
+<th style="color: #ffffff; background-color: #707070;">Password</th>
+<td><input type="password" placeholder="Password" name="password" required /></td>
+</tr>
+<tr>
+<td><input type="submit" value="Login"></input></td>
+</tr>
+</table>
 
 </body>
 </html>

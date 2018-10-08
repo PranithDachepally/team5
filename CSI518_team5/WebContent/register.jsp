@@ -9,5 +9,6 @@
 <body>
 <h2>School Management System | Register Page</h2>
 
+
 </body>
 </html>
