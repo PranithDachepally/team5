@@ -4,11 +4,13 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>School Management System | Register</title>
+<title>School Management System | Home</title>
 </head>
 <body>
-<h2>School Management System | Register</h2>
+<h2>School Management System | Home </h2>
 
+<a href="login.jsp">Login</a> |  
+<a href="register.jsp">Register</a>
 
 </body>
 </html>

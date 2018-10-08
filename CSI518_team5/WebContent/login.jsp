@@ -9,6 +9,5 @@
 <body>
 <h2>School Management System | Sign In</h2>
 
-
 </body>
 </html>
