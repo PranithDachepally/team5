@@ -4,41 +4,95 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>School Management System | Register</title>
 <script src="js/validate.js"></script>
-<link rel="stylesheet" href="css/local.css">
+<!--===============================================================================================-->	
+	<link rel="icon" type="image/png" href="images/icons/favicon.ico"/>
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="vendor/bootstrap/css/bootstrap.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+<!--============"C:/Users/pranith/Downloads/Login_v13/Login_v13/fonts"===================================================================================-->
+	<link rel="stylesheet" type="text/css" href="fonts/Linearicons-Free-v1.0.0/icon-font.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="fonts/iconic/css/material-design-iconic-font.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="vendor/animate/animate.css">
+<!--===============================================================================================-->	
+	<link rel="stylesheet" type="text/css" href="vendor/css-hamburgers/hamburgers.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="vendor/animsition/css/animsition.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="vendor/select2/select2.min.css">
+<!--===============================================================================================-->	
+	<link rel="stylesheet" type="text/css" href="vendor/daterangepicker/daterangepicker.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="css/util.css">
+	<link rel="stylesheet" type="text/css" href="css/main.css">
+<!--===============================================================================================-->
 </head>
-<body>
-<h2>School Management System | Register</h2>
+</head>
+<body style="background-color: #999999;">
+	
+	<div class="limiter">
+		<div class="container-login100">
+			<div class="login100-more" style="background-image: url('images/bg-01.jpg');"></div>
 
+			<div class="wrap-login100 p-l-50 p-r-50 p-t-72 p-b-50">
+				<form name="myform" method="post" onsubmit="return validateForm('Register','false')" class="login100-form validate-form">
+					<span class="login100-form-title p-b-59">
+						Sign Up
+					</span>
 
-	<form name="myform" method="post" onsubmit="return validateForm('Register','false')">
-		<table class="orgtable" ng-repeat="i in job" id="orgform">
-		<tr><th colspan="2">First Name</th></tr>
-		<tr><td colspan="2"><input  size="50" id="title" type="text" class="jobform" name="firstname" required /></td></tr>
-		<tr><th colspan="2">Last Name</th></tr>
-		<tr><td colspan="2"><input  size="50" id="title" type="text" class="jobform" name="lastname" required /></td></tr>
-		<tr><th colspan="2">Email</th></tr>
-		<tr><td colspan="2"><input  size="50" id="title" type="email" class="jobform" name="email" required /></td></tr>
-		<tr><th colspan="2">User Name</th></tr>
-		<tr><td colspan="2"><input  size="50" id="title" type="text" class="jobform" name="username" required /></td></tr>
-		<tr><th colspan="2">Password</th></tr>
-		<tr><td colspan="2"><input  size="50" id="title" type="password" class="jobform" name="password" required /></td></tr>
-		<tr><th colspan="2">Confirm password</th></tr>
-		<tr><td colspan="2"><input  size="50" id="title" type="password" class="jobform" name="confirm" required /></td></tr>
-		
-		<input type="hidden" name="action" value="add"/>
-		<table cellpadding="0" cellspacing="0" style="border: 0px;">
-		<tr style="border: 0px;">
-		<td style="border: 0px;"><input type="submit" id="submit"/></td>
-		<td style="border: 0px;">
+					<div class="wrap-input100 validate-input" data-validate="Name is required">
+						<span class="label-input100">FirstName</span>
+						<input class="input100" type="text" name="firstname" placeholder="FirstName...">
+						<span class="focus-input100"></span>
+					</div>
+					<div class="wrap-input100 validate-input" data-validate="Name is required">
+						<span class="label-input100">LastName</span>
+						<input class="input100" type="text" name="lastname" placeholder="LastName...">
+						<span class="focus-input100"></span>
+					</div>
+					<div class="wrap-input100 validate-input" data-validate = "Valid email is required: ex@abc.xyz">
+						<span class="label-input100">Email</span>
+						<input class="input100" type="email" name="email" placeholder="Email addess...">
+						<span class="focus-input100"></span>
+					</div>
+					<div class="wrap-input100 validate-input" data-validate="Username is required">
+						<span class="label-input100">Username</span>
+						<input class="input100" type="text" name="username" placeholder="Username...">
+						<span class="focus-input100"></span>
+					</div>
+
+					<div class="wrap-input100 validate-input" data-validate = "Password is required">
+						<span class="label-input100">Password</span>
+						<input class="input100" type="password" name="password" placeholder="*************">
+						<span class="focus-input100"></span>
+					</div>
+
+					<div class="wrap-input100 validate-input" data-validate = "Repeat Password is required">
+						<span class="label-input100">Repeat Password</span>
+						<input class="input100" type="password" name="confirm" placeholder="*************">
+						<span class="focus-input100"></span>
+					</div>
+					
+					
+					<div class="container-login100-form-btn">
+						<div class="wrap-login100-form-btn">
+							<div class="login100-form-bgbtn"></div>
+							<input type="submit" value="Sign Up"></input>
+							</div>
 		<span style="display: inline;" class="errormsg" id="errormsg"></span>
 		<span style="display: inline;" class="successmsg" id="successmsg"></span>
-		</td>
-		</tr>
-		</table>
-	</form>
-	<hr/>
-	<a href="index.jsp"/>Home</a>
+						<a href="login.jsp" class="dis-block txt3 hov1 p-r-30 p-t-10 p-b-10 p-l-30">
+							Sign in
+							<i class="fa fa-long-arrow-right m-l-5"></i>
+						</a>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+
 </body>
 </html>
