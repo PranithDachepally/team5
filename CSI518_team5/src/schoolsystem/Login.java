@@ -42,7 +42,7 @@ public class Login extends HttpServlet {
 
     	try {
     		if(rs.next()) {
-    			int db_userid = rs.getInt("idusers");
+    			int db_userid = rs.getInt("iduser");
     			String db_password = rs.getString("password");
 	    		String db_firstname = rs.getString("firstname");
 	    		String db_lastname = rs.getString("lastname");

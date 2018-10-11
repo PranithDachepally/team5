@@ -13,7 +13,7 @@
 
 		
 		<a href="index.jsp">Home</a>&nbsp;&nbsp;|&nbsp;&nbsp;
-		<a href="editprofile.jsp">Edit Profile</a>
+	   <% // <a href="editprofile.jsp">Edit Profile</a> %>
 <%
 
 	if(role.equals("admin")||role.equals("teacher")||role.equals("parent")) {

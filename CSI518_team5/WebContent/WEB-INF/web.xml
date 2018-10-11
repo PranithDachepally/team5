@@ -9,4 +9,12 @@
     <welcome-file>default.htm</welcome-file>
     <welcome-file>default.jsp</welcome-file>
   </welcome-file-list>
+    <context-param>
+    <param-name>user</param-name>
+    <param-value>icsi518.team5</param-value>
+  </context-param>
+  <context-param>
+    <param-name>pass</param-name>
+    <param-value>team5.icsi518</param-value>
+  </context-param>
 </web-app>

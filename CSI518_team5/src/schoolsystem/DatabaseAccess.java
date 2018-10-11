@@ -146,11 +146,11 @@ public class DatabaseAccess {
 		
 		try {
 			System.out.println("Connected to DB");
-			String sql = "SELECT * FROM user WHERE idusers=?";
+			String sql = "SELECT * FROM user WHERE iduser=?";
 			PreparedStatement statement = dbConn.prepareStatement(sql);
 			statement.setInt(1, id);
 			rs = statement.executeQuery();
-			System.out.print("Successfully executed query for idusers=");
+			System.out.print("Successfully executed query for iduser=");
 			System.out.println(id);
 				
 		}
@@ -171,7 +171,7 @@ public class DatabaseAccess {
 		
 		try {
 			System.out.println("Connected to DB");
-			String sql = "SELECT idusers,firstname,lastname FROM user WHERE NOT username='admin'";
+			String sql = "SELECT iduser,firstname,lastname FROM user WHERE NOT username='admin'";
 			PreparedStatement statement = dbConn.prepareStatement(sql);
 			rs = statement.executeQuery();
 			System.out.print("Successfully executed query for all users");
