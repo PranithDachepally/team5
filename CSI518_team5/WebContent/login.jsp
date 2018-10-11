@@ -74,12 +74,13 @@
 							<input type="submit" value="Login"></input>
 						</div>
 					</div>
+					<div class="errormsg" id="errormsg"></div>
+                    <div class="successmsg" id="successmsg"></div>
 </form>
 		</div>
 		</div>
 	</div>
-<div class="errormsg" id="errormsg"></div>
-<div class="successmsg" id="successmsg"></div>
+
 
 </body>
 </html>
