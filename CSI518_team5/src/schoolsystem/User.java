@@ -69,6 +69,12 @@ public class User {
 	public void setUserid(int userid) {
 		this.userid = userid;
 	}
-
+	
+	public boolean validate(String password) {
+		if(password.equals(this.password)) {
+			return true;
+		}
+		return false;
+	}
 
 }

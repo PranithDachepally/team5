@@ -5,12 +5,11 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>School Management System | Home</title>
+<link rel="stylesheet" href="css/local.css">
 </head>
 <body>
 <h2>School Management System | Home </h2>
 
-<a href="login.jsp">Login</a> |  
-<a href="register.jsp">Register</a>
-
+<jsp:include page='footer.jsp'></jsp:include>
 </body>
 </html>
