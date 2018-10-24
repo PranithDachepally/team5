@@ -12,7 +12,11 @@
 %>
 
 		
-		<a href="index.jsp">Home</a>&nbsp;&nbsp;|&nbsp;&nbsp;
+		<a href="index.jsp">Home</a> <br>
+		<a href="">Courses</a><br>
+		<a href="">Appointments</a><br>
+		<a href="">Time Table</a><br>
+		<a href="">Edit Profile</a><br>
 	   <% // <a href="editprofile.jsp">Edit Profile</a> %>
 <%
 
@@ -22,7 +26,7 @@
 %>
 
 		
-		&nbsp;&nbsp;|&nbsp;&nbsp;<a href="reports.jsp">Reports</a>
+		<a href="reports.jsp">Reports</a>
 
 <% } %>
 

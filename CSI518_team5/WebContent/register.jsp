@@ -30,7 +30,6 @@
 	<link rel="stylesheet" type="text/css" href="css/main.css">
 <!--===============================================================================================-->
 </head>
-</head>
 <body style="background-color: #999999;">
 	
 	<div class="limiter">
