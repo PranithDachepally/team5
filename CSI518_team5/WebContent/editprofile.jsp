@@ -48,7 +48,7 @@
 	}
 %>	
 <% 
-if((role.equals("user")||role.equals("teacher")||role.equals("parent"))) {
+if((role.equals("student")||role.equals("teacher")||role.equals("parent"))) {
 	%>
 <a href="updatePassword.jsp"><button>Update Your Password</button></a>
 <%
