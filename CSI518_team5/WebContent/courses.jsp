@@ -4,9 +4,11 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Insert title here</title>
+<title>Courses</title>
+<link rel="stylesheet" href="css/local.css">
 </head>
-<body>
-<a href="createclass.jsp">Create Class</a><br>
+<body background="pictures/pic0.jpg" >
+<a href="createclass.jsp" class="myButton">Create Class</a>
+
 </body>
 </html>
