@@ -183,6 +183,99 @@ public class DatabaseAccess {
 		
 		return rs;
 	}
+	public static boolean CheckPassword(int uid, String current_password) {
+		ResultSet rs = null;
+		if(!dbConnect()) {
+			return true;
+		}
+		try {
+			System.out.println("Connected to DB");
+			String sql = "Select password from user where iduser=?";
+		PreparedStatement statement = dbConn.prepareStatement(sql);
+		statement.setInt(1, uid);
+		rs = statement.executeQuery();
+		while(rs.next()) {
+			if(rs.getString("password").equals(current_password)){
+				System.out.print("Succesfully checked Password for user id=");
+				System.out.println(uid);
+				return true;
+			}
+			else {
+				System.out.print(" current password does not match the orignal Password for user id=");
+				System.out.println(uid);
+				return false;
+			}
+		}
+		}
+		catch(SQLException e) {
+			e.printStackTrace();
+		}
+		return true;
+	}
+	
+	public static boolean UpdatePassword(int uid,String current_Password, String conf_new_Password, String new_Password) {
+
+		int rs;
+		if(!dbConnect()) {
+			return false;
+		}
+		
+		try {
+			System.out.println("Connected to DB");
+			if(!new_Password.equals(conf_new_Password)) {
+				return false;
+			}
+			
+			
+			String sql = "update user set password = ? where iduser=?";
+			PreparedStatement statement = dbConn.prepareStatement(sql);
+			statement.setString(1, new_Password);
+			statement.setInt(2, uid);
+			rs=statement.executeUpdate();
+			if(rs==0) {
+				return false;
+			}
+
+			System.out.print("Successfully updated Password for users id=");
+			System.out.println(uid);
+			return true;
+				
+		}
+		catch (SQLException e) {
+			e.printStackTrace();
+			return false;
+		}
+		
+
+
+	}
+public static String UpdateUserRole(int uid, int role) {
+
+		
+		if(!dbConnect()) {
+			return null;
+		}
+		
+		try {
+			System.out.println("Connected to DB");
+			String sql = "update user set role = ? where iduser=?";
+			PreparedStatement statement = dbConn.prepareStatement(sql);
+			statement.setInt(1, role);
+			statement.setInt(2, uid);
+			int i = statement.executeUpdate();
+			if(i==0)
+				return "No such row";
+			System.out.print("Successfully updated role for idusers=");
+			System.out.println(uid);
+				
+		}
+		catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
+		return "success";
+
+	}
 	
 	
 }
