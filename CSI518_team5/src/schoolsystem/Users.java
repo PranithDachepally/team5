@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+
 import java.sql.ResultSet;
 
 /**
@@ -57,6 +58,14 @@ public class Users extends HttpServlet {
 			else {
 				rs = DatabaseAccess.getUsers();
 			}
+			if(rs==null) {
+				out.print("DB error");
+			}
+			else {
+				response.setContentType("application/json");
+				out.print(JSON.getJSONFromRS(rs));
+			}
+			
 	
 			
 			
