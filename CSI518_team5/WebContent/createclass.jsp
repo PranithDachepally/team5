@@ -9,7 +9,7 @@
 
 </head>
 
-<body>
+<body background="pictures/pic0.jpg" >
 <form action="">  
 <table>  
 <tr>  
