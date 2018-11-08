@@ -10,8 +10,9 @@
 </head>
 
 <body background="pictures/pic0.jpg" >
-<form action="">  
-<table>  
+<form action=""> 
+ 
+<table align="center">  
 <tr>  
     <td class="tdLabel"><label for="register_class_id" class="label">Class ID:</label></td>  
     <td><input type="text" name="id" value="" id="Class_id" style="width:160px"/></td>  
