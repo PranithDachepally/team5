@@ -2,13 +2,16 @@
     pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
+
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>School Management System | Create Class</title>
 </head>
-<body>
-<form action="">  
-<table>  
+
+<body background="pictures/pic0.jpg" >
+<form action=""> 
+
+<table align="center">  
 <tr>  
     <td class="tdLabel"><label for="register_class_id" class="label">Class ID:</label></td>  
     <td><input type="text" name="id" value="" id="Class_id" style="width:160px"/></td>  
