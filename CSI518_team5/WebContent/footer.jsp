@@ -13,7 +13,7 @@
 
 		
 		<a href="index.jsp">Home</a> <br>
-
+		<a href="courses.jsp">Courses</a><br>
 		<a href="">Appointments</a><br>
 		<a href="">Time Table</a><br>
 		<a href="editprofile.jsp">Edit Profile</a><br>

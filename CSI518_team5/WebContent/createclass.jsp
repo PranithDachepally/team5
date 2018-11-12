@@ -4,10 +4,10 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Insert title here</title>
+<title>School Management System | Create Class</title>
 </head>
 <body>
-<form action="http://www.javatpoint.com/javascriptpages/valid.jsp">  
+<form action="">  
 <table>  
 <tr>  
     <td class="tdLabel"><label for="register_class_id" class="label">Class ID:</label></td>  
