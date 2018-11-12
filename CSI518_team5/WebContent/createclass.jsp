@@ -10,7 +10,6 @@
 
 <body background="pictures/pic0.jpg" >
 <form action=""> 
-
 <table align="center">  
 <tr>  
     <td class="tdLabel"><label for="register_class_id" class="label">Class ID:</label></td>  
