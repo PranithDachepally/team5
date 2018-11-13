@@ -16,8 +16,10 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>School Management System | Create Class</title>
+
 <script src="js/validate.js"></script>
 <link rel="stylesheet" href="css/local.css">
+
 </head>
 
 <body background="pictures/pic0.jpg" >
