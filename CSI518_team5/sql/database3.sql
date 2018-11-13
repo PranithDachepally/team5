@@ -44,19 +44,18 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `course`;
 
- SET character_set_client = utf8mb4 ;
 CREATE TABLE `course` (
-  `course_id` varchar(10) NOT NULL,
-  `course_name` varchar(45) DEFAULT NULL,
-  `course_capcity` int(11) DEFAULT NULL,
-  `instructor` varchar(45) DEFAULT NULL,
+  `course_id` int(11) NOT NULL AUTO_INCREMENT,
+  `course_name` varchar(45) NOT NULL,
+  `course_capcity` int(11) NOT NULL,
+  `instructor` varchar(45) NOT NULL,
   PRIMARY KEY (`course_id`),
   UNIQUE KEY `course_id_UNIQUE` (`course_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1
 
 
 
 LOCK TABLES `course` WRITE;
-INSERT INTO `course` VALUES ('CSI500','Operating System',30,'John'),('CSI518','Software Engineering',30,'George'),('CSI535','Aritificial Intelligence',50,'John');
+INSERT INTO `course` VALUES (1,'CSI500-Operating System',30,'John'),(2,'CSI518-Software Engineering',30,'George'),(3,'CSI535-Aritificial Intelligence',50,'John');
 UNLOCK TABLES;
 

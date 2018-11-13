@@ -12,6 +12,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Create Class</title>
+<script src="js/angular.min.js"></script>
 <link rel="stylesheet" href="css/local.css">
 </head>
 <body background="pictures/pic0.jpg">
@@ -26,6 +27,16 @@
 <% 
 }
 %>
+<%
+	if(session.getAttribute("user")!=null){
 
+%>
+<div ng-app="jobsApp">
+
+</div>
+
+<%
+}
+%>
 </body>
 </html>

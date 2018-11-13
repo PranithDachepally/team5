@@ -63,6 +63,78 @@ public class DatabaseAccess {
 		}
 		return true;		
 	}
+	public static boolean addCourse(String courseName, String courseCapacity, String instructor) {
+		if(!dbConnect()) {
+			return false;
+		}
+		
+		try {
+			System.out.println("Connected to DB");
+			String sql = "INSERT INTO course (course_name,course_capcity,instructor) VALUES(?,?,?)";
+			PreparedStatement statement = dbConn.prepareStatement(sql);
+			statement.setString(1, courseName);
+			statement.setString(2, courseCapacity);
+			statement.setString(3, instructor);
+			
+			System.out.println(statement.toString());
+			statement.executeUpdate();
+			System.out.println("Successfully executed update query.");
+		}
+		catch (SQLException e) {
+			e.printStackTrace();
+			return false;
+			
+		}
+		return true;		
+	}
+
+	public static ResultSet getInstructorsbyId() {
+		ResultSet rs = null;
+		
+		if(!dbConnect()) {
+			return null;
+		}
+		
+		try {
+			System.out.println("Connected to DB");
+			String sql = "select * from user where role=2";
+//			String sql = "SELECT DISTINCT user.iduser, user.firstname, user.lastname FROM user INNER JOIN applications ON user.iduser = instructor.user";
+			PreparedStatement statement = dbConn.prepareStatement(sql);
+			rs = statement.executeQuery();
+			System.out.print("Successfully executed query for all applicants");
+				
+		}
+		catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
+		return rs;
+	}
+	// Get jobs
+	public static ResultSet getCourses() {
+		ResultSet rs = null;
+		
+		if(!dbConnect()) {
+			return null;
+		}
+		
+		try {
+			System.out.println("Connected to DB");
+			String sql = "SELECT * FROM course";
+			PreparedStatement statement = dbConn.prepareStatement(sql);
+			rs = statement.executeQuery();
+			System.out.println("Successfully executed query.");
+			
+		}
+		catch (SQLException e) {
+			e.printStackTrace();
+			
+		}
+		
+		return rs;
+		
+	}
+	
 	// Get single user
 	public static ResultSet getUser(String username) {
 		ResultSet rs = null;
