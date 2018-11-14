@@ -24,7 +24,7 @@
 
     	<a href="sendMessage.jsp">Sending Message</a>
 <%		
-	}else if(role.equals("parent")){
+	}else if(role.equals("parent")||role.equals("teacher")||role.equals("student")){
 %>
 		<a href="searchMessage.jsp">Message</a>
 			
