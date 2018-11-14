@@ -37,6 +37,89 @@ public class DatabaseAccess {
 		}
 		return true;
 	}
+	public static boolean addMessage(Message msg) {
+		if(!dbConnect()) {
+			return false;
+		}
+		
+		try {
+			System.out.println("Connected to DB");
+			String sql = "INSERT INTO msg VALUES(?,?,?)";
+			PreparedStatement statement = dbConn.prepareStatement(sql);
+			statement.setString(1, msg.getFrom());
+			statement.setString(2, msg.getTo());
+			statement.setString(3, msg.getContent());
+			
+			System.out.println(statement.toString());
+			statement.executeUpdate();
+			System.out.println("addMessage Successfully executed update query.");
+		}
+		catch (SQLException e) {
+			e.printStackTrace();
+			return false;
+			
+		}
+		return true;		
+	}
+	//get Message from database
+	public static ResultSet getMessage(String username) {
+		ResultSet rs = null;
+		
+		if(!dbConnect()) {
+			return null;
+		}
+		
+		try {
+			/*System.out.println("Connected to DB");
+			String sql = "SELECT * FROM msg WHERE name = ";
+			//sql =sql+"'"+username+"'";
+			sql+=username;
+			Statement statement = (Statement) dbConn.createStatement();
+			//statement.setString(1, username);
+			System.out.println("sql: " +sql);
+			rs = statement.executeQuery(sql);
+			System.out.print("getMessage Successfully executed query for username=");
+			System.out.println(username);*/
+			System.out.println("Connected to DB");
+			String sql = "SELECT * FROM msg WHERE name=?";
+			PreparedStatement statement = dbConn.prepareStatement(sql);
+			statement.setString(1, username);
+			System.out.println("sql: " +sql);
+			rs = statement.executeQuery();
+			System.out.print("getUser Successfully executed query for username=");
+			System.out.println(username);
+				
+		}
+		catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
+		return rs;
+	}
+	// Get the username of sender
+		public static ResultSet getUsername2(String email) {
+			ResultSet rs = null;
+			
+			if(!dbConnect()) {
+				return null;
+			}
+			
+			try {
+				System.out.println("Connected to DB");
+				String sql = "SELECT * FROM user WHERE email=?";
+				PreparedStatement statement = dbConn.prepareStatement(sql);
+				statement.setString(1, email);
+				rs = statement.executeQuery();
+				System.out.print("getUsername2 Successfully executed query for username=");
+				System.out.println(email);
+					
+			}
+			catch (SQLException e) {
+				e.printStackTrace();
+			}
+			
+			return rs;
+		}
 	// Add user
 	public static boolean addUser(User user) {
 		if(!dbConnect()) {
