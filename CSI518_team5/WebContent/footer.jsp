@@ -10,35 +10,35 @@
 
 	if(user!=null) {
 %>
-
-		
 		<a href="index.jsp">Home</a> <br>
-		<a href="courses.jsp">Courses</a><br>
 		<a href="">Appointments</a><br>
 		<a href="">Time Table</a><br>
-		<a href="editprofile.jsp">Edit Profile</a><br>
-
-	   <% // <a href="editprofile.jsp">Edit Profile</a> %>
+		<a href="editprofile.jsp">Edit Profile</a><br>   
 <%
 
 	if(role.equals("admin")) {
-
-		
 %>
-
-		
 		<a href="reports.jsp">Reports</a>
 
-<% } %>
+<% }else if(role.equals("teacher")){ %>
 
-    	<h4>User: <%= user %>, Role: <%= role %></h3>	
-	    <a href="Logout"><button>Logout</button></a><br/>
-<%	
-		} else {
+    	<a href="sendMessage.jsp">Sending Message</a>
+<%		
+	}else if(role.equals("parent")){
 %>
-		<a href="login.jsp">Sign In</a> &nbsp;&nbsp;|&nbsp;&nbsp;
+		<a href="searchMessage.jsp">Message</a>
+			
+<%	
+	}
+%>
+		<h4>User: <%= user %>, Role: <%= role %></h3>	
+	    <a href="Logout"><button>Logout</button></a><br/>
+<%
+	}else {
+%>
+		
+	    <a href="login.jsp">Sign In</a> <br>
 		<a href="register.jsp">Register</a>
-
 <%
 	}
 %>
