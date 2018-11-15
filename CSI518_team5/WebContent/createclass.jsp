@@ -19,6 +19,10 @@
 
 <script src="js/validate.js"></script>
 <link rel="stylesheet" href="css/local.css">
+<link rel="stylesheet" type="text/css" href="css/NavBar.css"> 
+<link rel="stylesheet" type="text/css" href="css/LoginButton.css">
+
+
 
 </head>
 
@@ -28,28 +32,35 @@
 	
 	if(user!=null) {
 %>
-		<h4>User: <%= user %>, Role: <%= role %></h4>	
-		<a href="Logout"><button>Logout</button></a><br/>
-		<hr/>
-		<div style="height:10000px;width:200px;float:left;">
-		<a href="index.jsp">Home</a> <br>
-		<a href="">Courses</a><br>
-		<a href="">Appointments</a><br>
-		<a href="">Time Table</a><br>
-		<a href="">Edit Profile</a><br>
+		<ul>
+				<li><a href="index.jsp">Home</a></li>
+				<li><a class="active" href="courses.jsp">Courses</a></li>
+				<li><a href="">Appointments</a></li>
+				<li><a href="">Time Table</a></li>
+				<li><a href="editprofile.jsp">Edit Profile</a></li>
+				<%
+					if (role.equals("admin")) {
+				%>
+				<li><a href="reports.jsp">Reports</a></li>
 
-	   <% // <a href="editprofile.jsp">Edit Profile</a> %>
-<%
+				<%
+					} else if (role.equals("teacher")) {
+				%>
 
-	if(role.equals("admin")||role.equals("teacher")||role.equals("parent")) {
+				<li><a href="sendMessage.jsp">Sending Message</a></li>
+				<%
+					} else if (role.equals("parent") || role.equals("teacher") || role.equals("student")) {
+				%>
+				<li><a href="searchMessage.jsp">Message</a></li>
+				<%
+					}
+				%>
 
-		
-%>
+				<li><a style='float: right;' href="Logout">Logout</a></li>
+			</ul>
+			<h4>User:<%=user%>, Role:<%=role%></h3>
+			<hr />
 
-		
-		<a href="reports.jsp">Reports</a>
-		</div>
-<% } %>
 
 <div ng-app="classApp" ng-controller="classController" style="float:center";>
 <form name="myform" method="post" onsubmit="return validateForm('course','false')">

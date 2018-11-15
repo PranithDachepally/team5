@@ -13,9 +13,10 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>School Management System | Courses</title>
 <link rel="stylesheet" href="css/local.css">
-<script src="/js/getCourse.js"></script>
 </head>
 <body background="pictures/pic0.jpg" >
+<script src="/js/getCourse.js"></script>
+<script> window.onload = function getCourse1("a","b"){alert("hahaha")}</script>
 <h2>School Management System | Courses </h2>
 <jsp:include page='coursefooter.jsp'></jsp:include>
 <title>Create Class</title>
