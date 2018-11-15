@@ -9,7 +9,6 @@
 </head>
 <body background="pictures/pic0.jpg" >
 <h2>School Management System | Home </h2>
-
 <jsp:include page='footer.jsp'></jsp:include>
 </body>
 </html>

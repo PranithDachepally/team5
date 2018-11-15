@@ -79,7 +79,7 @@
 					<div class="container-login100-form-btn">
 						<div class="wrap-login100-form-btn">
 							<div class="login100-form-bgbtn"></div>
-							<input type="submit" value="Sign Up"></input>
+							<input style='padding : 10px' type="submit" value="Sign Up"></input>
 							</div>
 		<span style="display: inline;" class="errormsg" id="errormsg"></span>
 		<span style="display: inline;" class="successmsg" id="successmsg"></span>

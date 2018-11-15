@@ -7,10 +7,12 @@
 <script src="js/angular.min.js"></script>
 <script src="js/validate.js"></script>
 <link rel="stylesheet" href="css/local.css">
+<link rel="stylesheet" type="text/css" href="css/LoginButton.css">
 <title>School Management System | Update Password</title>
 </head>
 <body>
 <h2>School Management System | Update Password </h2>
+<jsp:include page='footer.jsp'></jsp:include>
 <form name="myform" method="post" autocomplete="on" onsubmit="return validateForm('EditPassword','false')">
 <input type="hidden" name="user_id" placeholder="User ID " value="<%= session.getAttribute("userid") %>"></td>
 
@@ -36,7 +38,7 @@
 
 <div class="errormsg" id="errormsg"></div>
 <div class="successmsg" id="successmsg"></div>
-<% %><jsp:include page='footer.jsp'></jsp:include>
+<% %>
 
 </body>
 </html>

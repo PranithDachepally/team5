@@ -21,6 +21,8 @@ public class AddMessage extends HttpServlet{
         super();
         // TODO Auto-generated constructor stub
     }
+	
+	//For getting username
 	private String getUsername(String email) {
     	
     	//Message msg = new Message();

@@ -1,8 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+   
 <!-- begin footer include -->
+<link rel="stylesheet" type="text/css" href="css/NavBar.css">
+<link rel="stylesheet" type="text/css" href="css/LoginButton.css">
 <footer>
-<hr/>
 
 <%
 	String user = (String)session.getAttribute("user");
@@ -10,35 +12,38 @@
 
 	if(user!=null) {
 %>
-		<a href="index.jsp">Home</a> <br>
-		<a href="">Appointments</a><br>
-		<a href="">Time Table</a><br>
-		<a href="editprofile.jsp">Edit Profile</a><br>   
+		<ul>
+  		<li><a class="active" href="index.jsp">Home</a></li>
+		<li><a href="">Appointments</a></li>
+		<li><a href="">Time Table</a></li>
+		<li><a href="editprofile.jsp">Edit Profile</a></li>  
 <%
 
 	if(role.equals("admin")) {
 %>
-		<a href="reports.jsp">Reports</a>
+		<li><a href="reports.jsp">Reports</a></li>
 
 <% }else if(role.equals("teacher")){ %>
 
-    	<a href="sendMessage.jsp">Sending Message</a>
+    	<li><a href="sendMessage.jsp">Sending Message</a></li>
 <%		
 	}else if(role.equals("parent")||role.equals("teacher")||role.equals("student")){
 %>
-		<a href="searchMessage.jsp">Message</a>
-			
+		<li><a href="searchMessage.jsp">Message</a></li>	
 <%	
 	}
 %>
-		<h4>User: <%= user %>, Role: <%= role %></h3>	
-	    <a href="Logout"><button>Logout</button></a><br/>
+		
+	    <li><a style='float: right;' href="Logout" >Logout</a></li>
+	    </ul>
+	    
+	    <h4>User: <%= user %>, Role: <%= role %></h3>
 <%
 	}else {
 %>
-		
-	    <a href="login.jsp">Sign In</a> <br>
-		<a href="register.jsp">Register</a>
+			
+	    <a class="button" href="login.jsp"><span>Sign In </span></a>
+		<a class="button" href="register.jsp"><span>Register </span></a>
 <%
 	}
 %>

@@ -18,11 +18,13 @@
 <title>School Management System | Edit Profile</title>
 <script src="js/angular.min.js"></script>
 <link rel="stylesheet" href="css/local.css">
-
-
+<link rel="stylesheet" type="text/css" href="css/LoginButton.css">
 </head>
-<body>
+<body background="pictures/editprofile.png" style="    background-repeat: no-repeat;
+    background-size: 400px;
+    background-position: center 200px;">
 	<h2>School Management System | Edit Profile</h2>
+	<jsp:include page='footer.jsp'></jsp:include>
 	<%
 	if((role.equals("admin"))){
 	%>
@@ -50,7 +52,7 @@
 <% 
 if((role.equals("student")||role.equals("teacher")||role.equals("parent"))) {
 	%>
-<a href="updatePassword.jsp"><button>Update Your Password</button></a>
+<a href="updatePassword.jsp"><button class="button" style='background: #7F7FFF;'>Update Your Password</button></a>
 <%
 }
 %>
@@ -69,6 +71,5 @@ app.controller("profileController",function($scope,$http) {
 });
 
 </script>	
-<jsp:include page='footer.jsp'></jsp:include>
 </body>
 </html>

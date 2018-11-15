@@ -43,6 +43,7 @@
 <!--===============================================================================================-->
 	<link rel="stylesheet" type="text/css" href="css/util.css">
 	<link rel="stylesheet" type="text/css" href="css/main.css">
+	<link rel="stylesheet" type="text/css" href="css/LoginButton.css">
 </head>
 <body style="background-color: #999999;">
 	
@@ -71,7 +72,7 @@
 					<div class="container-login100-form-btn">
 						<div class="wrap-login100-form-btn">
 							<div class="login100-form-bgbtn"></div>
-							<input type="submit" value="Login"></input>
+							<input style='padding : 10px' type="submit" value="Login"></input>
 						</div>
 					</div>
 					<div class="errormsg" id="errormsg"></div>
