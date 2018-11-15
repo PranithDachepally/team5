@@ -27,39 +27,7 @@
 </head>
 
 <body background="pictures/pic0.jpg" >
-<%
-	String user = (String)session.getAttribute("user");
-	
-	if(user!=null) {
-%>
-		<ul>
-				<li><a href="index.jsp">Home</a></li>
-				<li><a class="active" href="courses.jsp">Courses</a></li>
-				<li><a href="">Appointments</a></li>
-				<li><a href="">Time Table</a></li>
-				<li><a href="editprofile.jsp">Edit Profile</a></li>
-				<%
-					if (role.equals("admin")) {
-				%>
-				<li><a href="reports.jsp">Reports</a></li>
 
-				<%
-					} else if (role.equals("teacher")) {
-				%>
-
-				<li><a href="sendMessage.jsp">Sending Message</a></li>
-				<%
-					} else if (role.equals("parent") || role.equals("teacher") || role.equals("student")) {
-				%>
-				<li><a href="searchMessage.jsp">Message</a></li>
-				<%
-					}
-				%>
-
-				<li><a style='float: right;' href="Logout">Logout</a></li>
-			</ul>
-			<h4>User:<%=user%>, Role:<%=role%></h3>
-			<hr />
 
 
 <div ng-app="classApp" ng-controller="classController" style="float:center";>
@@ -88,14 +56,7 @@
 </table> 
 </form> 
 </div>
-	<%} else {
-%>
-		<a href="login.jsp">Sign In</a> &nbsp;&nbsp;|&nbsp;&nbsp;
-		<a href="register.jsp">Register</a>
 
-<%
-	}
-	%>
 <script>
 
 var app = angular.module('classApp', []); // jobsApp to classApp

@@ -18,7 +18,7 @@
 <script src="/js/getCourse.js"></script>
 <script> window.onload = function getCourse1("a","b"){alert("hahaha")}</script>
 <h2>School Management System | Courses </h2>
-<jsp:include page='coursefooter.jsp'></jsp:include>
+<jsp:include page='footer.jsp'></jsp:include>
 <title>Create Class</title>
 <script src="js/angular.min.js"></script>
 <link rel="stylesheet" href="css/local.css">
