@@ -13,6 +13,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>School Management System | Courses</title>
 <link rel="stylesheet" href="css/local.css">
+<script src="/js/getCourse.js"></script>
 </head>
 <body background="pictures/pic0.jpg" >
 <h2>School Management System | Courses </h2>
