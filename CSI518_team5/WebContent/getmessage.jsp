@@ -9,24 +9,40 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>Insert title here</title>
-<style type="text/css">
-table {
-	border: 2px #CCCCCC solid;
-	width: 360px;
+<style>
+#customers {
+    font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
 }
- 
-td,th {
-	height: 30px;
-	border: #CCCCCC 1px solid;
+
+#customers td, #customers th {
+    border: 1px solid #ddd;
+    padding: 8px;
+}
+
+#customers tr:nth-child(even){background-color: #f2f2f2;}
+
+#customers tr:hover {background-color: #ddd;}
+
+#customers th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color: #4CAF50;
+    color: white;
 }
 </style>
 </head>
 <body>
-	<table>
+
+<jsp:include page='footer.jsp'></jsp:include>
+
+	<table id="customers">
 		<tr>
-			<th>from</th>
-			<th>to</th>
-			<th>content<th>
+			<th>From</th>
+			<th>To</th>
+			<th>Content<th>
 		</tr>
  
 		<c:forEach items="${key_list}" var="msg">
