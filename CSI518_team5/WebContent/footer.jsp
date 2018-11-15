@@ -14,6 +14,7 @@
 %>
 		<ul>
   		<li><a class="active" href="index.jsp">Home</a></li>
+  		<li><a href="courses.jsp">Courses</a></li>
 		<li><a href="">Appointments</a></li>
 		<li><a href="">Time Table</a></li>
 		<li><a href="editprofile.jsp">Edit Profile</a></li>  

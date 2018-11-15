@@ -23,7 +23,35 @@
 </head>
 
 <body background="pictures/pic0.jpg" >
-<div ng-app="classApp" ng-controller="classController">
+<%
+	String user = (String)session.getAttribute("user");
+	
+	if(user!=null) {
+%>
+		<h4>User: <%= user %>, Role: <%= role %></h4>	
+		<a href="Logout"><button>Logout</button></a><br/>
+		<hr/>
+		<div style="height:10000px;width:200px;float:left;">
+		<a href="index.jsp">Home</a> <br>
+		<a href="">Courses</a><br>
+		<a href="">Appointments</a><br>
+		<a href="">Time Table</a><br>
+		<a href="">Edit Profile</a><br>
+
+	   <% // <a href="editprofile.jsp">Edit Profile</a> %>
+<%
+
+	if(role.equals("admin")||role.equals("teacher")||role.equals("parent")) {
+
+		
+%>
+
+		
+		<a href="reports.jsp">Reports</a>
+		</div>
+<% } %>
+
+<div ng-app="classApp" ng-controller="classController" style="float:center";>
 <form name="myform" method="post" onsubmit="return validateForm('course','false')">
 <input type="hidden" name="action" value="new"/>
 <table class="orgtable">
@@ -49,6 +77,14 @@
 </table> 
 </form> 
 </div>
+	<%} else {
+%>
+		<a href="login.jsp">Sign In</a> &nbsp;&nbsp;|&nbsp;&nbsp;
+		<a href="register.jsp">Register</a>
+
+<%
+	}
+	%>
 <script>
 
 var app = angular.module('classApp', []); // jobsApp to classApp
