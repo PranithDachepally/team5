@@ -42,6 +42,15 @@ INSERT INTO `user` VALUES (1,'admin',NULL,NULL,NULL,'password',1),(2,'eu664771',
 
 UNLOCK TABLES;
 
+DROP TABLE IF EXISTS 'msg';
+
+CREATE TABLE `msg` (
+  `from` varchar(45) NOT NULL,
+  `name` varchar(45) NOT NULL,
+  `content` varchar(45) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1
+
+
 DROP TABLE IF EXISTS `course`;
 
 CREATE TABLE `course` (
