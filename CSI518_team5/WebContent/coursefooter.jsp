@@ -14,9 +14,13 @@
 				if (user != null) {
 			%>
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 
 >>>>>>> branch 'master' of https://github.com/Ugurlu81/team5.git
+=======
+
+>>>>>>> refs/remotes/origin/master
 			<ul>
 				<li><a href="index.jsp">Home</a></li>
 				<li><a class="active" href="courses.jsp">Courses</a></li>
