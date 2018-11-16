@@ -8,6 +8,8 @@
 	}
 
 	String role  = (String)session.getAttribute("role");
+	String firstname = (String)request.getParameter("firstname");
+	String lastname = (String)request.getParameter("lastname");
 	if(!(role.equals("admin"))) {
 		response.sendRedirect("index.jsp");
 	}
@@ -27,7 +29,7 @@
 </head>
 
 <body background="pictures/pic0.jpg" >
-
+<jsp:include page='footer.jsp'></jsp:include>
 
 
 <div ng-app="classApp" ng-controller="classController" style="float:center";>
@@ -39,8 +41,8 @@
 <tr>
 <th>Instructor</th>
 <td>
-<select name="instructorid" value="{{i.idusers}}">
-<option ng-repeat="i in instructor">{{i.firstname}} {{i.lastname}}</option>
+<select name="instructorid" >
+<option ng-repeat="x in instructor" value="{{x.firstname}} {{x.lastname}}">{{x.firstname}} {{x.lastname}}</option>
 </select>
 
 </td>
@@ -59,11 +61,13 @@
 
 <script>
 
-var app = angular.module('classApp', []); // jobsApp to classApp
 
-app.controller("classController",function($scope,$http) { // jobsController to classController
+
+var app = angular.module('classApp', []); 
+
+app.controller("classController",function($scope,$http) { 
 	
-	$http.get("Users?action=get_instructor").then(function(response){  // Jobs to course
+	$http.get("Users?action=get_instructor").then(function(response){  
 		
 		$scope.instructor=response.data;
 		
@@ -71,6 +75,7 @@ app.controller("classController",function($scope,$http) { // jobsController to c
 	
 	
 });
+
 
 </script> 
 </body>

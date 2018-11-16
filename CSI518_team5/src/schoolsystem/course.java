@@ -12,6 +12,10 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 
+
+
+
+
 /**
  * Servlet implementation class course
  */
@@ -38,7 +42,7 @@ public class course extends HttpServlet {
 		}
 		
 		PrintWriter out = response.getWriter();
-//		response.setContentType("text/plain");
+		response.setContentType("text/plain");
 		
 		String id = request.getParameter("id");
 		String action = request.getParameter("action");
@@ -72,11 +76,38 @@ public class course extends HttpServlet {
 				}			
 				}
 		}
+		else if(action.equals("delete")) {
+			if(id==null) {
+				out.print("no id");
+				return;
+			}
+			
+			if(DatabaseAccess.deleteCourse(id)) {
+				out.print("success");
+			}
+			else {
+				out.print("DB update error");
+			}
+			
+		}
+		
+		
 		else if(action.equals("get")) {
 			
-			if(instructorid!=null) {
-				System.out.println("getting intructor!");
-				ResultSet rs = DatabaseAccess.getInstructorsbyId();
+			if(id==null) {
+				// Get all jobs
+				ResultSet rs = DatabaseAccess.getcourses();
+				if(rs==null) {
+					out.print("DB error");
+				}
+				else {
+					response.setContentType("application/json");
+					out.print(JSON.getJSONFromRS(rs));
+				}
+			}
+			else {
+				// Get Course by ID
+				ResultSet rs = DatabaseAccess.getCourse(id);
 				if(rs==null) {
 					out.print("DB error");
 				}
@@ -84,8 +115,11 @@ public class course extends HttpServlet {
 					response.setContentType("application/json");
 					out.print(JSON.getJSONFromRS(rs));
 				}	
-				return;
 			}
+
+		}
+		
+		
 /*			
 			else if(id==null) {
 				// Get all jobs
@@ -109,15 +143,16 @@ public class course extends HttpServlet {
 					out.print(JSON.getJSONFromRS(rs));
 				}	
 			}
-			*/
-		}
+			
+		}*/
 		
 		else {
 			out.print("Unknown form action.");
 		}
+		}
 
-		
-	}
+
+	
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)

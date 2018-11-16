@@ -42,6 +42,7 @@ public class Users extends HttpServlet {
 		
 		// Get writer object
 		PrintWriter out = response.getWriter();
+		response.setContentType("text/plain");
 		
 		String action = request.getParameter("action");
 		String id = request.getParameter("id");
@@ -64,7 +65,7 @@ public class Users extends HttpServlet {
 				response.setContentType("application/json");
 				out.print(JSON.getJSONFromRS(rs));
 			}	
-		}/*
+		}
 		else if (action.equals("get_instructor")) {
 			rs = DatabaseAccess.getInstructors();
 			if(rs==null) {
@@ -74,7 +75,7 @@ public class Users extends HttpServlet {
 				response.setContentType("application/json");
 				out.print(JSON.getJSONFromRS(rs));
 			}
-		}*/
+		}
      }
 
 	/**

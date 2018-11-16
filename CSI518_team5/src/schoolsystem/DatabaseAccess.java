@@ -171,7 +171,7 @@ public class DatabaseAccess {
 		return true;		
 	}
 
-	public static ResultSet getInstructorsbyId() {
+	public static ResultSet getInstructors() {
 		ResultSet rs = null;
 		
 		if(!dbConnect()) {
@@ -180,12 +180,77 @@ public class DatabaseAccess {
 		
 		try {
 			System.out.println("Connected to DB");
-			String sql = "select * from user where role=2";
+			String sql = "select * from user where role = 2";
 //			String sql = "SELECT DISTINCT user.iduser, user.firstname, user.lastname FROM user INNER JOIN applications ON user.iduser = instructor.user";
 			PreparedStatement statement = dbConn.prepareStatement(sql);
 			rs = statement.executeQuery();
 			System.out.print("Successfully executed query for all applicants");
 				
+		}
+		catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
+		return rs;
+	}
+	public static boolean deleteCourse(String id) {
+	if(!dbConnect()) {
+		return false;
+	}
+	try {
+		System.out.println("Connected to DB");
+		String sql = "DELETE FROM course WHERE course_id = ?";
+		PreparedStatement statement = dbConn.prepareStatement(sql);
+		statement.setString(1, id);
+		System.out.println(statement.toString());
+		statement.executeUpdate();
+		System.out.println("Successfully executed delete query. ");
+	} catch(SQLException e) {
+		e.printStackTrace();
+		return false;
+	}
+	return true;
+}
+	// get Courses 
+	public static ResultSet getcourses() {
+		ResultSet rs = null;
+		
+		if(!dbConnect()) {
+			return null;
+		}
+		
+		try {
+			System.out.println("Connected to DB");
+			String sql = "SELECT * FROM course";
+			PreparedStatement statement = dbConn.prepareStatement(sql);
+			rs = statement.executeQuery();
+			System.out.println("Successfully executed query.");
+			
+		}
+		catch (SQLException e) {
+			e.printStackTrace();
+			
+		}
+		
+		return rs;
+		
+	}
+	public static ResultSet getCourse(String id) {
+		ResultSet rs = null;
+		
+		if(!dbConnect()) {
+			return null;
+		}
+		
+		try {
+			System.out.println("Connected to DB");
+			String sql = "SELECT * FROM course WHERE course_id=?";
+			PreparedStatement statement = dbConn.prepareStatement(sql);
+			statement.setString(1, id);
+			rs = statement.executeQuery();
+			System.out.print("Successfully executed query for id=");
+			System.out.println(id);
+			
 		}
 		catch (SQLException e) {
 			e.printStackTrace();
@@ -334,6 +399,60 @@ public class DatabaseAccess {
 		}
 		catch (SQLException e) {
 			e.printStackTrace();
+		}
+		
+		return rs;
+	}
+	// Update the organization row
+	public static boolean updateOrg(String name, String description, String contact_name, String contact_email,String email_server, String email_un, String email_pw, String email_port) {
+		if(!dbConnect()) {
+			return false;
+		}
+		
+		try {
+			System.out.println("Connected to DB");
+			String sql = "UPDATE organization SET name=?, description=?, contact_name=?, contact_email=?, email_server=?, email_un=?, email_pw=?, email_port=? WHERE idorganization=1 ";
+			PreparedStatement statement = dbConn.prepareStatement(sql);
+			statement.setString(1, name);
+			statement.setString(2, description);
+			statement.setString(3, contact_name);
+			statement.setString(4, contact_email);
+			statement.setString(5, email_server);
+			statement.setString(6, email_un);
+			statement.setString(7, email_pw);
+			statement.setString(8, email_port);
+			
+			System.out.println(statement.toString());
+			statement.executeUpdate();
+			System.out.println("Successfully executed update query.");
+		}
+		catch (SQLException e) {
+			e.printStackTrace();
+			return false;
+			
+		}
+		return true;
+	}
+
+	// Get the single organization row out of table
+	public static ResultSet getOrg() {
+		ResultSet rs = null;
+		
+		if(!dbConnect()) {
+			return null;
+		}
+		
+		try {
+			System.out.println("Connected to DB");
+			String sql = "SELECT * FROM organization LIMIT 0,1";
+			PreparedStatement statement = dbConn.prepareStatement(sql);
+			rs = statement.executeQuery();
+			System.out.println("Successfully executed query.");
+			
+		}
+		catch (SQLException e) {
+			e.printStackTrace();
+			
 		}
 		
 		return rs;

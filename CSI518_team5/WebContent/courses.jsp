@@ -16,38 +16,116 @@
 </head>
 <body background="pictures/pic0.jpg" >
 <script src="/js/getCourse.js"></script>
-<script> window.onload = function getCourse1("a","b"){alert("hahaha")}</script>
+
 <h2>School Management System | Courses </h2>
+
 <jsp:include page='footer.jsp'></jsp:include>
+
 <title>Create Class</title>
 <script src="js/angular.min.js"></script>
 <link rel="stylesheet" href="css/local.css">
 </head>
 <body background="pictures/pic0.jpg">
-<%
 
-	if(role.equals("admin")) {
-
-		
-%>
-<div class="container" style="background-color:#E6E6FA;" >
-
-<h3>Would you like to create a class?</h3>
-<a href="createclass.jsp">Create Class</a><br>
-<% 
-}
-%>
 <%
 	if(session.getAttribute("user")!=null){
 
 %>
-</div>
-<div ng-app="jobsApp">
+<!--  Role:  <%= role %> -->
+<div ng-app="jobsApp" ng-controller="jobsController"> 
+
+<table class="jobstable">
+	<thead>
+		<tr>
+		<th>Course ID</th>
+		<th>Course Name</th>
+		<th>Capacity</th>
+		
+		
+		<%
+			if(role.equals("student")){
+		%>
+		<th>Enroll</th>
+		<%
+			}
+		%>
+		<%
+			if(role.equals("admin")) {
+		%>
+		<th>Edit</th>
+		<th>Delete</th>
+		<th>Students</th>
+		<%
+			}
+		%>		
+		</tr>
+	</thead>
+	<tbody>
+	<tr ng-repeat="i in courses">
+		<td>{{ i.course_id }}</td>
+		<td>{{ i.course_name }}</td>
+		<td>{{ i.course_capcity }}</td>
+
+		<%
+			if(role.equals("student")) {
+		%>
+		<td><a href="enroll.jsp?id={{ i.course_id }}">Enroll</a></td>
+		<%
+			}
+		%>
+		<%
+			if(role.equals("admin")) {
+		%>
+		<td><a href="editcourse.jsp?id={{ i.course_id }}">Edit</a></td>
+		<%
+			}
+		%>
+		<%
+			if(role.equals("admin")) {
+		%>
+		<td><a href="deletecourse.jsp?id={{ i.course_id }}">Delete</a></td>
+		<%
+			}
+		%>
+		<%
+			if(role.equals("admin")) {
+		%>
+		<td><a href="enrolledStudent.jsp?id={{ i.course_id }}">Students</a></td>
+		<%
+			}
+		%>
+	</tr>
+	</tbody>
+
+</table>
+		<%
+			if(role.equals("admin")) {
+		%>		
+				<a href="createclass.jsp"><button>Add New Course</button></a>
+		<%
+			}
+		%>
 
 </div>
 
 <%
 }
 %>
+<script>
+
+var app = angular.module('jobsApp', []);
+
+app.controller("jobsController",function($scope,$http) {
+	
+	$http.get("course").then(function(response){
+		
+		$scope.courses=response.data;
+		
+	});
+	
+	
+});
+
+</script>
 </body>
 </html>
