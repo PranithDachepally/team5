@@ -51,6 +51,29 @@ CREATE TABLE `msg` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1
 
 
+DROP TABLE IF EXISTS `organization`;
+
+CREATE TABLE `organization` (
+  `idorganization` int(11) NOT NULL,
+  `name` varchar(45) DEFAULT NULL,
+  `description` varchar(255) DEFAULT NULL,
+  `contact_phone` varchar(45) DEFAULT NULL,
+  `contact_name` varchar(45) DEFAULT NULL,
+  `contact_email` varchar(45) DEFAULT NULL,
+  `email_server` varchar(45) DEFAULT NULL,
+  `email_un` varchar(45) DEFAULT NULL,
+  `email_pw` varchar(45) DEFAULT NULL,
+  `email_port` varchar(45) DEFAULT NULL,
+  PRIMARY KEY (`idorganization`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+
+LOCK TABLES `organization` WRITE;
+
+INSERT INTO `organization` VALUES (1,'Suny ','University at Albany','518-452-0000','Nobody','eugurlu@albany.edu','smtp.gmail.com','icsi518.team5','team5.icsi518','587');
+
+UNLOCK TABLES;
+
 DROP TABLE IF EXISTS `course`;
 
 CREATE TABLE `course` (
