@@ -37,6 +37,87 @@ public class DatabaseAccess {
 		}
 		return true;
 	}
+		public static ResultSet duplicateAppointment() {
+		ResultSet rs = null;
+		
+		if(!dbConnect()) {
+			return null;
+		}
+		
+		try {
+			
+			System.out.println("Inside duplicateAppointment!");
+			String sql = "SELECT receiverid,senderid,time,date FROM apt";
+			PreparedStatement statement = dbConn.prepareStatement(sql);
+			//statement.setInt(1, userid);
+			System.out.println("sql: " +sql);
+			rs = statement.executeQuery();
+			System.out.println("duplicateAppointment Successfully executed query");
+			//System.out.println(userid);
+				
+		}
+		catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
+		return rs;
+	}
+	//get Appointment from database
+		public static ResultSet getAppointment(int userid) {
+			ResultSet rs = null;
+			
+			if(!dbConnect()) {
+				return null;
+			}
+			
+			try {
+				
+				System.out.println("Inside getAppointment!");
+				String sql = "SELECT sfirstname,slastname,time,date FROM apt WHERE receiverid=?";
+				PreparedStatement statement = dbConn.prepareStatement(sql);
+				statement.setInt(1, userid);
+				System.out.println("sql: " +sql);
+				rs = statement.executeQuery();
+				System.out.print("getUser Successfully executed query for userid=");
+				System.out.println(userid);
+					
+			}
+			catch (SQLException e) {
+				e.printStackTrace();
+			}
+			
+			return rs;
+		}
+	public static boolean addAppointment(Appointment apt) {
+		if(!dbConnect()) {
+			return false;
+		}
+		
+		try {
+			//System.out.println("Connected to DB");
+			String sql = "INSERT INTO apt VALUES(?,?,?,?,?,?,?,?)";
+			PreparedStatement statement = dbConn.prepareStatement(sql);
+			statement.setInt(1, apt.getReceiverid());
+			statement.setString(2, apt.getRfirstname());
+			statement.setString(3, apt.getRlastname());
+			statement.setInt(4, apt.getSenderid());
+			statement.setString(5, apt.getSfirstname());
+			statement.setString(6, apt.getSlastname());
+			statement.setString(7, apt.getTime());
+			statement.setString(8, apt.getDate());
+			
+			
+			//System.out.println(statement.toString());
+			statement.executeUpdate();
+			System.out.println("addAppointment Successfully executed update query.");
+		}
+		catch (SQLException e) {
+			e.printStackTrace();
+			return false;
+			
+		}
+		return true;		
+	}
 	public static boolean addMessage(Message msg) {
 		if(!dbConnect()) {
 			return false;
