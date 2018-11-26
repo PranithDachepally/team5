@@ -37,20 +37,7 @@ public class AddMessage extends HttpServlet{
     		if(rs.next()) {
     			//int db_userid = rs.getInt("iduser");
     			String db_usernameofreceiver = rs.getString("username");
-    			//String db_password = rs.getString("password");
-	    		//String db_firstname = rs.getString("firstname");
-	    		//String db_lastname = rs.getString("lastname");
-	    		//String db_email = rs.getString("email");
-	    		//int db_role = rs.getInt("role");
-	    	
-	    		//user.setUserid(db_userid);
-	    		//user.setEmail(db_email);
-	    		//user.setFirstname(db_firstname);
-	    		//user.setLastname(db_lastname);
-	    		//user.setPassword(db_password);
-	    		//user.setRole(DatabaseAccess.getRole(db_role));
-	    		//msg.setTo(db_usernameofreceiver);
-	    		//user.setUserid(db_userid);
+    			
 	    		return db_usernameofreceiver;
     		}	
 	    }
