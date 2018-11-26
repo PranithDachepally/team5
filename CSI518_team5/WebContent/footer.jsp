@@ -17,7 +17,7 @@
   		<li><a href="courses.jsp">Courses</a></li>
 		<li><a href="organization.jsp">Organization</a></li>
 		
-	<%// 	<li><a href="">Time Table</a></li>%>
+
 	
 		<li><a href="editprofile.jsp">Edit Profile</a></li>  
 <%
@@ -26,21 +26,30 @@
 %>
 		<li><a href="reports.jsp">Reports</a></li>
 
-<% }else if(role.equals("teacher")){ %>
+<% 
+	}else if(role.equals("teacher")){ 
+%>
 
     	<li><a href="sendMessage.jsp">Sending Message</a></li>
+    	<li><a href="getmessage.jsp">Message</a></li>
+    	<li><a href="getAppointment.jsp">Appointment</a></li>
 <%		
-	}else if(role.equals("parent")||role.equals("teacher")||role.equals("student")){
+	}else if(role.equals("parent")){
 %>
-		<li><a href="searchMessage.jsp">Message</a></li>	
+		<li><a href="getmessage.jsp">Message</a></li>	
 <%	
-	}
+	}else if(role.equals("student")){ 
 %>
-		
+
+		<li><a href="getmessage.jsp">Message</a></li>
+		<li><a href="sAppointment.jsp">Make a Appointment</a></li>
+<%
+	}
+%>	
 	    <li><a style='float: right;' href="Logout" >Logout</a></li>
 	    </ul>
 	    
-	    <h4>User: <%= user %>, Role: <%= role %></h3>
+	    <h4>User: <%= user %>, Role: <%= role %></h4>
 <%
 	}else {
 %>
