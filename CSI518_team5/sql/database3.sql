@@ -91,3 +91,15 @@ LOCK TABLES `course` WRITE;
 INSERT INTO `course` VALUES (1,'CSI500-Operating System',30,'John'),(2,'CSI518-Software Engineering',30,'George'),(3,'CSI535-Aritificial Intelligence',50,'John');
 UNLOCK TABLES;
 
+DROP TABLE IF EXISTS 'apt';
+
+CREATE TABLE `apt` (
+  `receiverid` int(11) NOT NULL,
+  `rfisrtname` varchar(45) NOT NULL,
+  `rlastname` varchar(45) NOT NULL,
+  `senderid` int(11) NOT NULL,
+  `sfirstname` varchar(45) NOT NULL,
+  `slastname` varchar(45) NOT NULL,
+  `time` varchar(45) NOT NULL,
+  `date` varchar(45) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1
