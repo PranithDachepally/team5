@@ -48,7 +48,7 @@ CREATE TABLE `msg` (
   `from` varchar(45) NOT NULL,
   `name` varchar(45) NOT NULL,
   `content` varchar(45) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 
 DROP TABLE IF EXISTS `organization`;
@@ -83,7 +83,7 @@ CREATE TABLE `course` (
   `instructor` varchar(45) NOT NULL,
   PRIMARY KEY (`course_id`),
   UNIQUE KEY `course_id_UNIQUE` (`course_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
 
 
 
@@ -102,4 +102,4 @@ CREATE TABLE `apt` (
   `slastname` varchar(45) NOT NULL,
   `time` varchar(45) NOT NULL,
   `date` varchar(45) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
