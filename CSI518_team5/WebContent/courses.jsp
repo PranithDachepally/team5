@@ -19,7 +19,7 @@
 
 <h2>School Management System | Courses </h2>
 
-<jsp:include page='footer.jsp'></jsp:include>
+<jsp:include page='coursefooter.jsp'></jsp:include>
 
 <title>Create Class</title>
 <script src="js/angular.min.js"></script>
