@@ -484,7 +484,44 @@ public class DatabaseAccess {
 		
 		return rs;
 	}
+//get user_id by username	
+	public static int getUserIdByName(String username) {
+		ResultSet rs = null;
+		int userId = -2;
+		if(!dbConnect()) {
+			return -1;   //get user id has error
+		}
 		
+		try {
+			System.out.println("Connected to DB");
+			if(getUserExists(username)) {
+				String sql = "SELECT iduser FROM user WHERE username=?";
+				PreparedStatement statement = dbConn.prepareStatement(sql);
+				statement.setString(1, username);
+				rs = statement.executeQuery();
+				System.out.print("Successfully executed query for username=");
+				System.out.println(username);
+			}else {
+				System.out.print("Failed. User not exists.");
+				return -1;
+			}
+				
+		}
+		catch (SQLException e) {
+			e.printStackTrace();
+		}
+		try {
+			if(rs.next()) {
+				userId = rs.getInt("iduser");
+			}
+		}
+		catch (SQLException e) {
+			e.printStackTrace();
+			
+		}		
+		return userId;
+	}	
+	
 	// Get all users
 	public static ResultSet getUsers() {
 		ResultSet rs = null;
@@ -627,6 +664,51 @@ public class DatabaseAccess {
 
 
 	}
+// students enroll class	
+	public static String EnrollClass(int courseId, int userId) {
+		if(!dbConnect()) {
+			return null;
+		}
+		
+		try {
+			System.out.println("Connected to DB");
+			String sql = "INSERT INTO class (course_id,user_id) VALUES(?,?)";
+			PreparedStatement statement = dbConn.prepareStatement(sql);
+			statement.setInt(1, courseId);
+			statement.setInt(2, userId);
+			System.out.println(statement.toString());
+			statement.executeUpdate();
+			System.out.println("Successfully executed update query.");
+		}
+		catch (SQLException e) {
+			e.printStackTrace();			
+		}
+		return "success";		
+	}	
+//check if already enrolled
+	
+public static boolean CheckEnrollment(int courseId, int userId) {
+		ResultSet rs = null;
+		if(!dbConnect()) {
+			return false;
+		}
+		try {
+			System.out.println("Connected to DB");
+			String sql = "Select * from class where course_id=? and user_id=?";
+		PreparedStatement statement = dbConn.prepareStatement(sql);
+		statement.setInt(1, courseId);
+		statement.setInt(2, userId);
+		rs = statement.executeQuery();
+		while(rs.next()) {
+				System.out.print("Already Enrolled");
+				return false;
+			}
+		}catch(SQLException e) {
+			e.printStackTrace();
+		}
+		return true;
+	}
+	
 public static String UpdateUserRole(int uid, int role) {
 
 		

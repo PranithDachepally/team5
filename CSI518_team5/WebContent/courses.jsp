@@ -69,7 +69,7 @@
 		<%
 			if(role.equals("student")) {
 		%>
-		<td><a href="enroll.jsp?id={{ i.course_id }}">Enroll</a></td>
+		<td><a href="enroll.jsp?id={{ i.course_id }}&coursename={{ i.course_name }}&coursecap={{ i.course_capcity }}">Enroll</a></td>
 		<%
 			}
 		%>

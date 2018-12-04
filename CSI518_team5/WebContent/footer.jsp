@@ -4,6 +4,7 @@
 <!-- begin footer include -->
 <link rel="stylesheet" type="text/css" href="css/NavBar.css">
 <link rel="stylesheet" type="text/css" href="css/LoginButton.css">
+
 <footer>
 
 <%
@@ -12,10 +13,11 @@
 
 	if(user!=null) {
 %>
+		<nav id= "nav">
 		<ul>
-  		<li><a class="active" href="index.jsp">Home</a></li>
+  		<li id="Home"><a href="index.jsp">Home</a></li>
   		<li><a href="courses.jsp">Courses</a></li>
-		<li><a href="organization.jsp">Organization</a></li>
+		<li id="organization"><a href="organization.jsp">Organization</a></li>
 		
 
 	
@@ -30,8 +32,8 @@
 	}else if(role.equals("teacher")){ 
 %>
 
-    	<li><a href="sendMessage.jsp">Sending Message</a></li>
-    	<li><a href="getmessage.jsp">Message</a></li>
+    	<li id="sendMessage"><a href="sendMessage.jsp">Sending Message</a></li>
+    	<li id="getMessage"><a href="getmessage.jsp">Message</a></li>
     	<li><a href="getAppointment.jsp">Appointment</a></li>
 <%		
 	}else if(role.equals("parent")){
@@ -48,7 +50,7 @@
 %>	
 	    <li><a style='float: right;' href="Logout" >Logout</a></li>
 	    </ul>
-	    
+	    </nav>
 	    <h4>User: <%= user %>, Role: <%= role %></h4>
 <%
 	}else {
@@ -59,5 +61,12 @@
 <%
 	}
 %>
+<script>
+$(document).ready(function() {
+	// get current URL path and assign 'active' class
+	var pathname = window.location.pathname;
+	alert(pathname);
+	$('.nav > li > a[href="'+pathname+'"]').parent().addClass('active');
+})</script>
 </footer>
 <!-- end footer include -->
