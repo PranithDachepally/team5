@@ -88,7 +88,7 @@ CREATE TABLE `course` (
 
 
 LOCK TABLES `course` WRITE;
-INSERT INTO `course` VALUES (1,'CSI500-Operating System',30,'John'),(2,'CSI518-Software Engineering',30,'George'),(3,'CSI535-Aritificial Intelligence',50,'John');
+INSERT INTO `course` VALUES (1,'CSI500-Operating System',30,2),(2,'CSI518-Software Engineering',30,2),(3,'CSI535-Aritificial Intelligence',50,4);
 UNLOCK TABLES;
 
 DROP TABLE IF EXISTS 'apt';
