@@ -46,7 +46,7 @@ public class course extends HttpServlet {
 		
 		String id = request.getParameter("id");
 		String action = request.getParameter("action");
-		String instructorid = request.getParameter("instructorid"); 
+		//String instructorName = request.getParameter("instructorName"); 
 		if(action==null) {
 			action="get";
 		}
@@ -55,9 +55,9 @@ public class course extends HttpServlet {
 			Instructor i = new Instructor();
 			String courseName = request.getParameter("name");
 			String courseCapacitiy = request.getParameter("capacity");
-			String inst_id = request.getParameter("instructorid");
-			i.setInstructor(instructorid);
-			
+			String inst_id = request.getParameter("instructorName");
+			//i.setInstructor(instructorName);
+			i.setInstructor(inst_id);
 			if(courseName==null||courseName.equals("")) {
 				out.print("Course Name missing");
 			}
@@ -95,7 +95,7 @@ public class course extends HttpServlet {
 		else if(action.equals("get")) {
 			
 			if(id==null) {
-				// Get all jobs
+				// Get all courses
 				ResultSet rs = DatabaseAccess.getcourses();
 				if(rs==null) {
 					out.print("DB error");

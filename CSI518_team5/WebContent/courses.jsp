@@ -21,9 +21,9 @@
 
 <jsp:include page='footer.jsp'></jsp:include>
 
-<title>Create Class</title>
+
 <script src="js/angular.min.js"></script>
-<link rel="stylesheet" href="css/local.css">
+
 </head>
 <body background="pictures/pic0.jpg">
 
@@ -40,7 +40,7 @@
 		<th>Course ID</th>
 		<th>Course Name</th>
 		<th>Capacity</th>
-		
+		<%// <th>Instructor</th> %>
 		
 		<%
 			if(role.equals("student")){
@@ -61,11 +61,11 @@
 		</tr>
 	</thead>
 	<tbody>
-	<tr ng-repeat="i in courses">
+	<tr ng-repeat="i in courses" ng-repeat = "x in instructors">
 		<td>{{ i.course_id }}</td>
 		<td>{{ i.course_name }}</td>
 		<td>{{ i.course_capcity }}</td>
-
+		<%//<td>{{ x.iduser }}</td>%>
 		<%
 			if(role.equals("student")) {
 		%>
@@ -87,6 +87,7 @@
 		<%
 			}
 		%>
+
 		<%
 			if(role.equals("admin")) {
 		%>
@@ -122,6 +123,10 @@ app.controller("jobsController",function($scope,$http) {
 		$scope.courses=response.data;
 		
 	});
+	$http.get("Users?action=getInstructorName").then(function(response){
+		$scope.instructors=response.data;
+	});
+
 	
 	
 });

@@ -1,5 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+<%@ taglib prefix="c" 
+           uri="http://java.sun.com/jsp/jstl/core" %>
+           <%@ page import ="java.util.*"%>
+<%@ page import="java.sql.ResultSet" %>
+<%@ page import="schoolsystem.*" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <% 
@@ -8,8 +13,8 @@
 	}
 
 	String role  = (String)session.getAttribute("role");
-	String firstname = (String)request.getParameter("firstname");
-	String lastname = (String)request.getParameter("lastname");
+//	String firstname = (String)request.getParameter("firstname");
+//	String lastname = (String)request.getParameter("lastname");
 	if(!(role.equals("admin"))) {
 		response.sendRedirect("index.jsp");
 	}
@@ -24,7 +29,39 @@
 <link rel="stylesheet" type="text/css" href="css/NavBar.css"> 
 <link rel="stylesheet" type="text/css" href="css/LoginButton.css">
 
-
+<%
+List<Map> list =new ArrayList<Map>();
+	ResultSet rs = DatabaseAccess.getInstructors();
+	try {
+		
+		System.out.println("getInstructors");
+		while (rs.next()) {
+			String fname = rs.getString("firstname");
+			String lname = rs.getString("lastname");
+			int userid = rs.getInt("iduser");
+			//System.out.println("Teachername: " + fname + lname);
+		
+			
+			
+			Map map = new HashMap<>(); 
+			map.put("firstname", fname);			
+			map.put("lastname", lname);	
+			map.put("userid", userid);
+			//map.put("content", content);
+			
+			System.out.println(map);
+			list.add(map);
+			
+			for (@SuppressWarnings("rawtypes") Map map_1 :list) {
+				System.out.println(map_1);
+			}
+			
+		}
+	} catch (Exception e) {
+		e.printStackTrace();
+	}
+	request.setAttribute("key_list",list);
+	%>
 
 </head>
 
@@ -41,10 +78,18 @@
 <tr>
 <th>Instructor</th>
 <td>
-<select name="instructorid" >
-<option ng-repeat="x in instructor" value="{{x.firstname}} {{x.lastname}}">{{x.firstname}} {{x.lastname}}</option>
-</select>
+<select class="teacher-name" name="instructorName">
+		<c:forEach items="${key_list}" var="apt">
+			
+        	<option id="${apt.userid}" value = "${apt.userid}">${apt.firstname} ${apt.lastname}</option>
+			
+		</c:forEach>
+		</select>
 
+<% //<select name="instructorName"/>
+//<option ng-repeat="x in instructor" value = "{{x.iduser}}">{{x.firstname}} {{x.lastname}}</option>
+//</select>
+%>
 </td>
 </tr>
 
@@ -72,8 +117,7 @@ app.controller("classController",function($scope,$http) {
 		$scope.instructor=response.data;
 		
 	});
-	
-	
+		
 });
 
 

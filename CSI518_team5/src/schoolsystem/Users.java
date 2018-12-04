@@ -76,6 +76,16 @@ public class Users extends HttpServlet {
 				out.print(JSON.getJSONFromRS(rs));
 			}
 		}
+	/*	else if (action.equals("getIntructorName")) {
+			rs = DatabaseAccess.getInstructorName();
+			if(rs==null) {
+				out.print("DB error");
+			}
+			else {
+				response.setContentType("application/json");
+				out.print(JSON.getJSONFromRS(rs));
+			}
+		}*/
      }
 
 	/**
