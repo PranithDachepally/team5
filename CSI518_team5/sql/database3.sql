@@ -80,10 +80,10 @@ CREATE TABLE `course` (
   `course_id` int(11) NOT NULL AUTO_INCREMENT,
   `course_name` varchar(45) NOT NULL,
   `course_capcity` int(11) NOT NULL,
-  `instructor` varchar(45) NOT NULL,
+  `instructor` int(11) NOT NULL,
   PRIMARY KEY (`course_id`),
   UNIQUE KEY `course_id_UNIQUE` (`course_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=25 DEFAULT CHARSET=latin1;
 
 
 
