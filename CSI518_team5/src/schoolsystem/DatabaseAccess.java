@@ -62,6 +62,30 @@ public class DatabaseAccess {
 		
 		return rs;
 	}
+	public static ResultSet getInstructorname() {
+		ResultSet rs = null;
+		
+		if(!dbConnect()) {
+			return null;
+		}
+		
+		try {
+			System.out.println("Connected to DB");
+			//String sql = "SELECT firstname, lastname FROM user WHERE role = 2 ";
+			String sql = "select username from user where role = 2";
+			//String sql = "SELECT DISTINCT user.iduser, user.firstname, user.lastname FROM user INNER JOIN applications ON user.iduser = instructor.user";
+			PreparedStatement statement = dbConn.prepareStatement(sql);
+			rs = statement.executeQuery();
+			System.out.print("Successfully executed query for all instructor");
+				
+		}
+		catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
+		return rs;
+	}
+
 	//get Appointment from database
 		public static ResultSet getAppointment(int userid) {
 			ResultSet rs = null;
