@@ -265,9 +265,14 @@ h1{
 	request.setAttribute("date", date);
 %>
 <body id="grad1">
+	<script>
+function myFunction() {
+    alert("Success!");
+}
+</script>
 <h1 style="color:white">Please choose a Instructor below</h1>
 
-	<form  class="form-horizontal" action="/CSI518_team5/Appointment" method="post">
+	<form  class="form-horizontal" action="/CSI518_team5/Appointment" method="post" onsubmit="myFunction()">
 	<div  data-js="custom-scroll" style="font-size:25px; color:red">
 		Instructor:<select class="chosen-select" name="teachername" class="form-control" style="    width: 200px;
     height: 40px;
