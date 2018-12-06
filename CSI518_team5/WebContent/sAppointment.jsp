@@ -309,8 +309,9 @@ function myFunction() {
 		</c:forEach>
 		</select>
 		<input type="submit" class="btn btn-primary" value="submit"  style="    width: 150px;
+										     
     height: 40px;
-    font-size: 25px;">
+    font-size: 25px;"><a href="index.jsp">Back</a>
 		</div>
 	</form>
 	
