@@ -22,8 +22,6 @@
 
 	
 		<li><a href="editprofile.jsp">Edit Profile</a></li>  
-		<li><a href="getDiscussion.jsp">Discuss</a></li>  
-		
 <%
 
 	if(role.equals("admin")) {
@@ -41,6 +39,8 @@
     	<li id="sendMessage"><a href="sendMessage.jsp">Sending Message</a></li>
     	<li id="getMessage"><a href="getmessage.jsp">Message</a></li>
     	<li><a href="getAppointment.jsp">Appointment</a></li>
+    	<li id="Upload"><a href="upload.jsp">Upload</a></li>
+    	<li id="Calender"><a href="calender.html">Calender</a></li>
 <%		
 	}else if(role.equals("parent")){
 %>
@@ -51,10 +51,12 @@
 
 		<li><a href="getmessage.jsp">Message</a></li>
 		<li><a href="sAppointment.jsp">Make a Appointment</a></li>
+		<li id="Upload"><a href="upload.jsp">Upload</a></li>
+		<li id="Calender"><a href="calender.html">Calender</a></li>
 <%
 	}
 %>	
-	    <li><a style='float: right;' href="Logout" >Logout</a></li>
+		<li><a style='float: right;' href="Logout" >Logout</a></li>
 	    </ul>
 	    </nav>
 	    <h4>User: <%= user %>, Role: <%= role %></h4>
