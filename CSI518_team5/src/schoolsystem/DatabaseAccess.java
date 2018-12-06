@@ -736,6 +736,54 @@ public static String UpdateUserRole(int uid, int role) {
 		return "success";
 
 	}
+public static ResultSet getClassList(int course_id) {
+	// TODO Auto-generated method stub
+	ResultSet rs = null;
+	System.out.print("getclasslist function working");
+	if(!dbConnect()) {
+		return null;
+	}
+	
+	try {
+		System.out.println("Connected to DB");
+		String sql = "SELECT * FROM class,user,course WHERE class.course_id=course.course_id AND user.iduser = class.user_id AND class.course_id=?";
+		PreparedStatement statement = dbConn.prepareStatement(sql);
+		statement.setInt(1, course_id);
+		rs = statement.executeQuery();
+		System.out.println("Successfully executed query.");
+		
+	}
+	catch (SQLException e) {
+		e.printStackTrace();
+		
+	}
+	
+	return rs;
+}
+public static ResultSet getAllClass() {
+	// TODO Auto-generated method stub
+	
+	ResultSet rs = null;
+	
+	if(!dbConnect()) {
+		return null;
+	}
+	
+	try {
+		System.out.println("Connected to DB");
+		String sql = "SELECT * FROM class";
+		PreparedStatement statement = dbConn.prepareStatement(sql);
+		rs = statement.executeQuery();
+		System.out.println("Successfully executed query.");
+		
+	}
+	catch (SQLException e) {
+		e.printStackTrace();
+		
+	}
+	
+	return rs;
+}
 	
 	
 }

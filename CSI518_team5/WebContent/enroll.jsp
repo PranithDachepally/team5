@@ -4,7 +4,7 @@
     
 <% 
 	if(session.getAttribute("user")==null) {
-		response.sendRedirect("login.jsp?referrer=editprofile.jsp");
+		response.sendRedirect("login.jsp?referrer=courses.jsp");
 	}
 
 	String role=(String)session.getAttribute("role");
