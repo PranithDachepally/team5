@@ -7,7 +7,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>File Upload to Database Demo</title>
 </head>
-<body>
+<body background="pictures/pic0.jpg">
     <center>
         <h1>File Upload to Database Demo</h1>
         <form method="post" action="uploadServlet" enctype="multipart/form-data">
