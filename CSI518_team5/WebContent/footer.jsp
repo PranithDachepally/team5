@@ -27,6 +27,10 @@
 	if(role.equals("admin")) {
 %>
 		<li><a href="reports.jsp">Reports</a></li>
+		<li id="sendMessage"><a href="sendMessage.jsp">Sending Message</a></li>
+    		<li id="getMessage"><a href="getmessage.jsp">Message</a></li>
+    		<li id="GroupNotifaction"><a href="groupnoc.jsp">Group Notication</a></li>
+
 
 <% 
 	}else if(role.equals("teacher")){ 
