@@ -27,7 +27,9 @@
 		<th>Student ID</th>
 		<th>First Name</th>
 		<th>Last Name</th>
-		
+		<th>Student ID</th>
+		<th>Grade</th>
+		<th>Attendance</th>
 		</tr>
 	</thead>
 	<tbody>
@@ -37,7 +39,13 @@
 		<td>{{ i.course_name }}</td>		
 		<td>{{ i.user_id }}</td>
 		<td>{{ i.firstname }}</td>
-		<td>{{ i.lastname }}</td>		
+		<td>{{ i.lastname }}</td>
+		<td><form method="post" action="gradeServlet" enctype="multipart/form-data"><input class="input100" type="text" name="Student_id" placeholder="student id"></form></td>
+		<td><form method="post" action="gradeServlet" enctype="multipart/form-data"><input class="input100" type="text" name="grade" placeholder="grade"></form></td>
+		<td><form method="post" action="gradeServlet" enctype="multipart/form-data"><input class="input100" type="text" name="attendance" placeholder="attendance"></form></td>
+		<td colspan="2">
+                        <input type="submit" value="Save">
+                    </td>
 		<%//<td>{{ x.iduser }}</td>%>
 		<%
 			if(role.equals("student")) {
