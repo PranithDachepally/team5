@@ -128,3 +128,12 @@ LOCK TABLES `class` WRITE;
 INSERT INTO `class` VALUES (1,1,3);
 /*!40000 ALTER TABLE `class` ENABLE KEYS */;
 UNLOCK TABLES;
+
+CREATE TABLE `file` (
+  `idfile` int(11) NOT NULL AUTO_INCREMENT,
+  `iduser` int(11) NOT NULL,
+  `photo` mediumblob NOT NULL,
+  PRIMARY KEY (`idfile`,`iduser`),
+  KEY `iduser_idx` (`iduser`),
+  CONSTRAINT `iduser` FOREIGN KEY (`iduser`) REFERENCES `user` (`iduser`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
