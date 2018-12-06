@@ -65,9 +65,14 @@
 	request.setAttribute("date", date);
 %>
 <body>
+	<script>
+		function myFunction() {
+    		alert("Success");
+			}
+	</script>
 <h1>Please choose a Instructor below</h1>
 
-	<form action="/CSI518_team5/Appointment" method="post">
+	<form action="/CSI518_team5/Appointment" method="post" onsubmit="myFunction()">
 		Instructor:<select class="teacher-name" name="teachername">
 		<c:forEach items="${key_list}" var="apt">
 			
