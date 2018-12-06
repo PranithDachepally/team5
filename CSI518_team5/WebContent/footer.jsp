@@ -22,6 +22,8 @@
 
 	
 		<li><a href="editprofile.jsp">Edit Profile</a></li>  
+		<li><a href="getDiscussion.jsp">Discuss</a></li>  
+		
 <%
 
 	if(role.equals("admin")) {

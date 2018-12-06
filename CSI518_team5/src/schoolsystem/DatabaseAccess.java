@@ -809,5 +809,135 @@ public static ResultSet getAllClass() {
 	return rs;
 }
 	
+public static boolean addComment(comment c) {
+	if(!dbConnect()) {
+		return false;
+	}
+	
+	try {
+		System.out.println("Connected to DB");
+		String sql = "INSERT INTO comment (discuss_id,comment_content,iduser) VALUES(?,?,?)";
+		PreparedStatement statement = dbConn.prepareStatement(sql);
+		statement.setInt(1, c.getdiscussid());
+		statement.setString(2, c.getComment());
+		statement.setInt(3, c.getiduser());
+		System.out.println(statement.toString());
+		statement.executeUpdate();
+	}
+	catch (SQLException e) {
+		e.printStackTrace();
+		return false;
+		
+	}
+	return true;		
+}
+
+public static ResultSet getComment(int discuss_id) {
+System.out.println("getComment");
+ResultSet rs = null;
+
+if(!dbConnect()) {
+	return null;
+}
+
+try {
+	System.out.println("Connected to DB");
+	String sql = "SELECT * FROM comment WHERE discuss_id=?";
+	PreparedStatement statement = dbConn.prepareStatement(sql);
+	statement.setString(1, Integer.toString(discuss_id));
+	rs = statement.executeQuery();
+		
+}
+catch (SQLException e) {
+	e.printStackTrace();
+}
+
+return rs;
+}
+public static void deleteComment(int comment_id) {
+System.out.println("deleteComment");
+
+if(!dbConnect()) {
+	return;
+}
+
+try {
+	System.out.println("Connected to DB");
+	String sql = "DELETE FROM comment WHERE comment_id=?;";
+	PreparedStatement statement = dbConn.prepareStatement(sql);
+	statement.setString(1, Integer.toString(comment_id));
+	statement.executeUpdate();
+		
+}
+catch (SQLException e) {
+	e.printStackTrace();
+}
+
+return;
+}
+
+public static boolean addDiscuss(discuss d) {
+	if(!dbConnect()) {
+		return false;
+	}
+	
+	try {
+		System.out.println("Connected to DB");
+		String sql = "INSERT INTO discuss (discuss_name) VALUES(?)";
+		PreparedStatement statement = dbConn.prepareStatement(sql);
+		statement.setString(1, d.getName());
+		System.out.println(statement.toString());
+		statement.executeUpdate();
+	}
+	catch (SQLException e) {
+		e.printStackTrace();
+		return false;
+		
+	}
+	return true;		
+}
+
+public static ResultSet getDiscuss() {
+System.out.println("getDiscuss");
+ResultSet rs = null;
+
+if(!dbConnect()) {
+	return null;
+}
+
+try {
+	System.out.println("Connected to DB");
+	String sql = "SELECT * FROM discuss";
+	PreparedStatement statement = dbConn.prepareStatement(sql);
+	rs = statement.executeQuery();
+		
+}
+catch (SQLException e) {
+	e.printStackTrace();
+}
+
+return rs;
+}
+public static String deleteDiscuss(int discuss_id) {
+System.out.println("deleteDiscuss: "+discuss_id);
+
+if(!dbConnect()) {
+return null;
+}
+
+try {
+System.out.println("Connected to DB");
+String sql = "DELETE FROM discuss WHERE discuss_id=?;";
+PreparedStatement statement = dbConn.prepareStatement(sql);
+statement.setInt(1, (discuss_id));
+System.out.println(statement);
+statement.executeUpdate();
+}
+catch (SQLException e) {
+e.printStackTrace();
+}
+
+return "success";
+}
 	
 }
