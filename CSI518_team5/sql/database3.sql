@@ -137,3 +137,11 @@ CREATE TABLE `file` (
   KEY `iduser_idx` (`iduser`),
   CONSTRAINT `iduser` FOREIGN KEY (`iduser`) REFERENCES `user` (`iduser`)
 ) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
+
+CREATE TABLE `grade` (
+  `id` int(11) NOT NULL,
+  `iduser` int(11) NOT NULL,
+  `grade` varchar(45) NOT NULL,
+  `attendance` varchar(45) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
